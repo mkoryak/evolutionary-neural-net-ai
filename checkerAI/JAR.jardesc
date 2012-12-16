@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+<jar path="G:/!PROGRAMMING/Jarred_Things/NN/NN.jar"/>
+<options buildIfNeeded="true" compress="true" descriptionLocation="/CheckersNN/JAR.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" useSourceFolders="false"/>
+<manifest generateManifest="true" mainClassHandleIdentifier="=CheckersNN/&lt;evolutionary_nn{Main.java[Main" manifestLocation="/GAFramework/MANIFEST.MT" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+<sealing sealJar="false">
+<packagesToSeal/>
+<packagesToUnSeal/>
+</sealing>
+</manifest>
+<selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+<javaElement handleIdentifier="=CheckersNN/&lt;checkers_framework"/>
+<javaElement handleIdentifier="=CheckersNN/&lt;checkers"/>
+<javaElement handleIdentifier="=CheckersNN/&lt;evolutionary_framework"/>
+<javaElement handleIdentifier="=CheckersNN/&lt;"/>
+<javaElement handleIdentifier="=CheckersNN/&lt;evolutionary_nn"/>
+</selectedElements>
+</jardesc>

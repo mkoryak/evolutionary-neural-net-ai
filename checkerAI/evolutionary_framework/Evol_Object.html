@@ -1,0 +1,220 @@
+<!--- 2006 Ari Packer ---!>
+<!--- Handwritten HTML, a thing of the past ---!>
+
+<html>
+<body>
+
+<title>Interface Evol_Object</title>
+
+<h2>Interface Evol_Object</h2>
+
+<hr>
+public interface <b>Evol_Object</b>
+<p>
+
+Used with Evol_Algorithm class which evolves a population of <i>Evol_Object</i>s. Specifies an instance of 
+a solution to your problem and how to mutate from this instance to a child instance. Crossover is not currently
+supported.<p>
+
+To successfully use this package you must implement the abstract classes and override the clone() method.
+The class should contain a representation of your problem and an instance of your solution. For example, 
+if you were implementing a TSP class this class would store the distance matrix (representation of problem)
+and one permutation of cities (instance of solution).
+
+<hr>
+<p>
+
+<!--- method summary table ---!>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Method summary
+			</font></b>
+		</th>
+	</tr>
+
+
+	<!--- clone ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract Object
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#compute_fitness">clone</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Copy all attributes of this object to a new Evol_Object instance and return the clone.
+		</td>
+	</tr>
+
+
+	<!--- compute_fitness ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#compute_fitness">compute_fitness</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Calculates and stores the fitness value for this element.
+		</td>
+	</tr>
+
+
+	<!--- crossover ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract Evol_Object
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#crossover">crossover</a></b>(Evol_Object parent2)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+			This method may be implemented with a semi-empty body ( {return(this);} ) if crossover is not required.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+			1. Create a (child) clone of this.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+			2. Make the child the result of crossover between parent2 and this.
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+			3. Return the child.
+
+
+
+		</td>
+	</tr>
+
+
+
+	<!--- get_fitness ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract int
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#get_fitness">get_fitness</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Return the stored fitness value.
+		</td>
+	</tr>
+
+
+	<!--- head_to_head ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract Evol_Object
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#head_to_head">head_to_head</a></b>(Evol_Object contender)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			This method is used with tournament selection. Let contender and this
+			compete and return the winner. If tournament selection is not required, it may 
+			be implemented as a semi-empty method such as <i>{ return(this); }</i> because
+			it will never be called.
+		</td>
+	</tr>
+
+
+
+
+
+
+	<!--- initialize_representation ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#initialize_representation">initialize_representation</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			This method may be implemented with an empty body ( {} ). This 
+			method initializes a problem representation. An example would be to create a random distance matrix for the TSP or a random valid 
+			puzzle for the N-puzzle. Implementing this method allows <i>EvolParamOptimizer</i> to optimize for the problem in general, not a 
+			specific instance of it.
+		</td>
+	</tr>
+
+
+
+	<!--- is_minimization ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract boolean
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#is_minimization ">is_minimization </a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Return true if this is a minimization problem, false if this is a maximization problem.
+		</td>
+	</tr>
+
+
+	<!--- mutate ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract Evol_Object
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#mutate">mutate</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				1. Create a clone of this.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				2. Perform a mutation on the clone (child)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				3. Return the newly mutated child<br>
+		</td>
+	</tr>
+
+
+
+	<!--- randomize ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				abstract Evol_Object
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#randomize">randomize</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				1. Create a clone of this.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				2. Create a random solution for the clone.<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				3. Return the clone.<br>
+		</td>
+	</tr>
+
+
+</table>
+
+
+<A NAME="clone"></A>
+<A NAME="compute_fitness"></A>
+<A NAME="get_fitness"></A>
+<A NAME="is_minimization"></A>
+<A NAME="mutate"></A>
+<A NAME="randomize"></A>

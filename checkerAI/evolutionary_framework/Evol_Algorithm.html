@@ -1,0 +1,329 @@
+<!--- 2006 Ari Packer ---!>
+<!--- Handwritten HTML, a thing of the past ---!>
+
+<html>
+<body>
+
+<title>Class Evol_Algorithm</title>
+
+<h2>Class Evol_Algorithm</h2>
+
+<hr>
+public class <b>Evol_Algorithm</b>
+<p>
+
+Evolves a population of <i>Evol_Object</i>s. It can be quickly used by creating an instance of an <i>Evol_Object</i> and using that as a parameter
+when creating an instance of an <i>Evol_Algorithm</i> and then calling the search method.
+
+<hr>
+<p>
+
+<!--- constructor summary table ---!>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Constructor summary
+			</font></b>
+		</th>
+	</tr>
+
+	<!--- basic constructor ---!>
+	<tr>
+		<td width="100%">
+			<b><a href = "#constructor">Evol_Algorithm</a></b>(Evol_Object rt)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Creates an Evol_Algorithm instance.
+		</td>
+	</tr>
+
+
+	<!--- detailed constructor ---!>
+	<tr>
+		<td width="100%">
+			<b><a href = "#constructor">Evol_Algorithm</a></b>(Evol_Object rt, int population_size, int stop_val, int max_gen, int num_elite)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Creates an Evol_Algorithm instance.
+		</td>
+	</tr>
+</table>
+
+<p>
+
+<!--- method summary table ---!>
+
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Method summary
+			</font></b>
+		</th>
+	</tr>
+
+
+	<!--- crossover_two_children ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#crossover_two_children">crossover_two_children</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			By default, crossover is implemented by finding a pair of parents for each for each child element created. Calling this method
+			will cause each pair of parents chosen to create two child elements.
+		</td>
+	</tr>
+
+
+
+	<!--- enable_crossover ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#enable_crossover">enable_crossover</a></b>(int percent_crossover)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Calling allows a <i>percent_crossover</i>% (default 0) chance of crossover for each child. If the child is not created
+			through crossover, it is created by mutation.Crossover and mutation occuring simulataneously is current not supported.
+		</td>
+	</tr>
+
+
+
+	<!--- enable_print_population ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#enable_print_population">enable_print_population</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Calling this method enables printing each <i>Eval_Object</i>'s fitness values each generation.
+		</td>
+	</tr>
+
+
+	<!--- generations ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				int
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#generations">generations</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			After a search is performed, this may be called to return the number of generations
+			that the search took. This can be used to determine whether or not your search failed (if applicable).
+		</td>
+	</tr>
+
+
+
+
+
+	<!--- max_solutions ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#max_solutions">max_solutions</a></b>(int max_num_solutions)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Calling this function enables this optional stopping condition. It stops after a certain
+			number of potential solutions have been viewed. This is calculated by <i>population size</i>*<i>number of generations</i>.
+			This gives more control than the <i>max_generations</i> stopping condition.
+		</td>
+	</tr>
+
+
+
+	<!--- popsize ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				int
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#popsize">popsize</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Returns the population size that this object uses to perform an evolutionary search.
+		</td>
+	</tr>
+
+
+	<!--- recompute_elitists ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#recompute_elitists">recompute_elitists</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			If this function is called, the fitness of the elitist elements will be recalculated for
+			each generation.
+		</td>
+	</tr>
+
+
+	<!--- search ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				PrioQueue
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#search">search</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Creates a random population of Evol_Objects and evolves them until a stopping criteria is met.
+		</td>
+	</tr>
+
+
+	<!--- set_selection_type ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#set_selection_type">set_selection_type</a></b>(int selection_type)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Sets the selection operator (default roulette selection). <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			1. Roulette selection. (Currently no other selection operators are available)
+		</td>
+	</tr>
+
+
+
+
+</table>
+<p>
+
+
+<A NAME="constructor"></A>
+<!---contructor detail---!>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Constructor detail
+			</font></b>
+		</th>
+	</tr>
+</table>
+<p>
+
+<h3>Evol_Algorithm</h3>
+
+public <b>Evol_Algorithm</b>(Evol_Object rt, int population_size, int stop_val, int max_gen, int num_elite)
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Creates an instance of Evol_Algorithm that searches for 100 generations
+with population size of 20, 1 elitist element, and a stop_val of -1 (see below).
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Parameters</b>
+<p>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>rt</u> - An instance of an Evol_Object which contains a representation of the problem that you wish to solve.<br>
+<hr>
+
+
+public <b>Evol_Algorithm</b>(Evol_Object rt, int population_size, int stop_val, int max_gen, int num_elite)
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Creates an instance of Evol_Algorithm.
+
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Parameters</b>
+<p>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>rt</u> - An instance of an Evol_Object which contains a representation of the problem that you wish to solve.<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>population_size</u> - The population size to use while executing the evolutionary algorithm.<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>stop_val</u> - Stop the search when the fittest element's fitness is equal to this value. -1 disables this stopping condition.<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>max_gen</u> - Stop the search after this many generations.<br>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>num_elite</u> - Number of elitist elements.<br>
+
+<p>
+
+
+
+<p>
+<!---Method detail---!>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Method detail
+			</font></b>
+		</th>
+	</tr>
+</table>
+<A NAME="search"></A>
+
+<h3>search</h3>
+
+public PrioQueue <b>search</b>()
+
+<blockquote>
+1. Creates an initial randomized population of <i>Evol_Object</i>s.<br>
+<BR>
+2. While a stopping criteria is not met:
+
+<blockquote>
+Generates a new population using the roulette wheel selection technique and the mutation(s) specified in <i>Evol_Object</i>'s <i>mutate</i>() method.
+</blockquote>
+
+3. Return the final population of <i>Evol_Object</i>s as a <i>PrioQueue</i> object.
+
+</blockquote><p>
+
+
+</body></html>

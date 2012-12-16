@@ -1,0 +1,202 @@
+<!--- 2006 Ari Packer ---!>
+<!--- Handwritten HTML, a thing of the past ---!>
+
+<html>
+<body>
+
+<title>Class EvolParamOptimizer</title>
+
+<h2>Class EvolParamOptimizer</h2>
+
+<b>All Implemented Iterfaces:</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Evol_Object<p>
+
+
+<hr>
+public class <b>EvolParamOptimizer</b>
+<p>
+
+
+This class optimizes the evolutionary search parameters <i>population size</i> and <i>number of elitist elements</i>
+for the Evol_Algorithm class for a specific instance of the Evol_Object interface. To use, construct one instance
+of this class and evolve it using Evol_Algorithm as you would with any other Evol_Object.
+
+<p>
+
+How it works: The initial population is generated randomly with <i>population size</i>s of 1 to 500. <i>Number of elitist elements</i> is generated
+randomly from 0 to <i>population size</i>. A mutation is more or less defined as: 25% chance num elitist decrements by 1, 25% chance num elitist increments 
+by 1, 25% chance population size increments from 0 to 4 (randomly), 25% population size decrements from 0 to 4 (randomly). Checks ensure that
+population size > 1, num elitist < population size, and num elitist >= 0.  Fitness is calculated by performing the evolutionary search N times
+(default 10) and averaging the results.
+
+
+<hr>
+<p>
+
+<!--- constructor summary table ---!>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Constructor summary
+			</font></b>
+		</th>
+	</tr>
+
+
+	<!--- constructor ---!>
+	<tr>
+		<td width="100%">
+			<b><a href = "#constructor">EvolParamOptimizer</a></b>(Evol_Object rt, int stop_val, int max_generations, boolean optimize_for_fitness, int max_solut)
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Creates an EvolParamOptimizer instance. Evolve a population of these with Evol_Algorithm.
+		</td>
+	</tr>
+</table>
+
+<p>
+
+<!--- method summary table ---!>
+
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Method summary
+			</font></b>
+		</th>
+	</tr>
+
+
+	<!--- print_params ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#print_params">print_params</a></b>()
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			Prints the <i>population_size</i> and <i>number of elitist elements</i> for this instance of EvolParamOptimizer.
+		</td>
+	</tr>
+
+	<!--- set_trials ---!>
+	<tr>
+		<TD ALIGN="right" VALIGN="top" WIDTH="10%">
+			<FONT SIZE="2">
+				void
+			</font>
+		</td>
+		<td width="100%">
+			<b><a href = "#set_trials">set_trials</a></b>(int num_trials)
+			<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			
+				Number of times to test each set of parameters (EvolParamOptimizer object).			
+		</td>
+	</tr>
+
+</table>
+<p>
+
+
+<A NAME="constructor"></A>
+<!---contructor detail---!>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Constructor detail
+			</font></b>
+		</th>
+	</tr>
+</table>
+<p>
+
+
+<h3>EvolParamOptimizer</h3>
+
+public <b>EvolParamOptimizer</b>(Evol_Object rt, int stop_val, int max_generations, boolean optimize_for_fitness, int max_solut)
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Creates an instance of EvolParamOptimizer, which can then be evolved using Evol_Algorithm.
+EvolParamOptimizer determines what the best <i>population size</i> and <i>number of elitist elements</i>
+are for evolving a specific instance of Evol_Object with Evol_Algorithm.<p>
+
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>Parameters</b>
+<blockquote>
+
+<u>rt</u> - An instance of an Evol_Object which contains a representation of the problem that you wish to solve.<br>
+
+
+<u>stop_val</u> - Stop value for rt. See Evol_Algorithm.<br>
+
+
+<u>max_generations</u> - Number of generations to evolve (if optimization problem) or number of
+generations before failure (if looking for a specific solution).<br>
+
+
+<u>optimize_for_fitness</u> - If this is <i>true</i>, the EvolParamOptimizer object's fitness will be based
+on <i>rt</i>'s fitness after <i>max_generations</i>.  If this is <i>false</i>, the fitness will be based on 
+resources used to find the solution (optimizes for finding the solution faster).  With the latter, be sure to
+make <i>max_generations</i> fairly high because a failure will be measured the same as a success, <i>population size</i> * <i>number of generations</i>.
+By making <i>max_generations</i> higher, you are penalizing objects which fail to find a solution.
+For example, use <i>true</i> for the TSP and <i>false</i> for the SAT.
+<br>
+
+<u>max_solut</u> -  Before calculating its fitness, <i>EvolParamOptimizer</i> calls <i>max_num_solutions(max_solut)</i> on internal 
+			  <i>Evol_Algorithm</i> object. -1 disables this option.
+
+<br>
+
+
+<p>
+
+</blockquote>
+
+<p>
+<!---Method detail---!>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<TR BGCOLOR="#CCCCFF">
+		<TH ALIGN="left" COLSPAN="2">
+			<FONT SIZE="+2"><b>
+				Method detail
+			</font></b>
+		</th>
+	</tr>
+</table>
+<A NAME="print_params"></A>
+
+<h3>print_params</h3>
+
+public void <b>print_params</b>()
+
+<blockquote>
+	Prints the <i>population_size</i> and <i>number of elitist elements</i> for this instance of EvolParamOptimizer.
+	You can use this to print the parameters of the returned <i>EvolParamOptimizer</i> from your call to <i>Evol_Algorithm</i>'s search() method.
+</blockquote>
+<p>
+
+
+<A NAME="set_trials"></A>
+
+<h3>set_trials</h3>
+
+public void <b>set_trials</b>(int num_trials)
+
+<blockquote>
+	Because an evolutionary search relies on randomness, each trial run will give a different result.
+	To compute the fitness for a set of parameters, each parameter set (EvolParamOptimizer object) is tested a number of times <i>(default 10)</i>
+	and averaged. This function sets the number of trials.</blockquote>
+</blockquote>
+
+</body></html>

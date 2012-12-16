@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+    <jar path="G:/!PROGRAMMING/Jarred_Things/NN/NN.jar"/>
+    <options overwrite="false" compress="true" exportErrors="true" exportWarnings="true" saveDescription="true" descriptionLocation="/CheckersNN/MAINPROG.jardesc" useSourceFolders="false" buildIfNeeded="true" includeDirectoryEntries="false"/>
+    <manifest manifestVersion="1.0" usesManifest="true" reuseManifest="false" saveManifest="false" generateManifest="false" manifestLocation="/CheckersNN/APP.MF">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportOutputFolder="false" exportJavaFiles="false">
+        <javaElement handleIdentifier="=CheckersNN/&lt;crapplet"/>
+        <javaElement handleIdentifier="=CheckersNN/&lt;checkers"/>
+        <javaElement handleIdentifier="=CheckersNN/&lt;evolutionary_framework"/>
+        <javaElement handleIdentifier="=CheckersNN/&lt;evolutionary_nn"/>
+        <javaElement handleIdentifier="=CheckersNN/&lt;checkers_framework"/>
+        <javaElement handleIdentifier="=CheckersNN/&lt;dialogs"/>
+        <javaElement handleIdentifier="=CheckersNN/&lt;"/>
+        <javaElement handleIdentifier="=CheckersNN/&lt;rmi"/>
+    </selectedElements>
+</jardesc>
