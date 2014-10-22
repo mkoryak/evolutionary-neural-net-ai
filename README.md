@@ -4,7 +4,7 @@ Evolutionary-Neural-Net-Checker-AI
 A neural network based minimax checker AI that is generated using an evolutionary algorithm.
 
 -----
-[Demo](http://mkoryak.github.com/checkers/nn_checker_ai_demo.html) - Play against 3 of the best AIs we evolved.
+[Demo](http://mkoryak.github.io/code/2014/10/16/evolutionary-neural-net-checker-ai/) - Play against 3 of the best AIs we evolved.
 
 -----
 The Neural Network Checker AI was a semester long final project for a graduate evolutionary computation class I took in 2006.
