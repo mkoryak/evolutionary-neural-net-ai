@@ -6,9 +6,11 @@ A neural network based minimax checker AI that is generated using an evolutionar
 -----
 [Demo](http://mkoryak.github.io/code/2014/10/16/evolutionary-neural-net-checker-ai/) - Play against 3 of the best AIs we evolved.
 
+Sadly, this no longer works because java applets are not supported by modern browsers. If I recall correctly, the code include a desktop checker application written in java swing that you may be able to run. Be warned though, this was built in java 1.4 almost 20 years ago by some college kids using an IDE that was basically notepad with a run button. 
+
 -----
 The Neural Network Checker AI was a semester long final project for a graduate evolutionary computation class I took in 2006.
-I worked on a team with Ari Packer to complete this project. Dan Dumont also provided a "hard" checker AI which we used to train against
+I worked on a team with Ari Packer to complete this project. [Dan Dumont](https://github.com/ddumont) also provided a "hard" checker AI which we used to train against
 
 
 This project was based on a 2001 publication by Chellapilla K and Fogel DB (2001) "Evolving an Expert Checkers Playing Program without Using Human Expertise".
